@@ -1,9 +1,9 @@
 {
-  "name": "@eox/eslint-config-vue",
+  "name": "@eox/code-style-vue",
   "version": "0.2.0",
-  "description": "EOX Vue ESLint and Prettier config",
+  "description": "EOX Prettier and ESLint config for Vue.js projects",
   "main": "index.js",
-  "repository": "https://github.com/EOX-A/eslint-config",
+  "repository": "https://github.com/EOX-A/code-style-vue",
   "author": "EOX",
   "license": "MIT",
   "dependencies": {

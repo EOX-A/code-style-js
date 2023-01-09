@@ -1,7 +1,7 @@
 # EOX ESLint & Prettier config vor Vue
 ## Installation
 ```js
-npm install --save-dev EOX-A/eslint-config-vue
+npm install --save-dev EOX-A/code-style-vue
 ```
 ## Usage
 ### Prettier
@@ -16,7 +16,7 @@ Please refer to the [Prettier CLI docs](https://prettier.io/docs/en/cli.html) fo
 To include ESLint in the project, create a file called `.eslintrc.js` in the app root:
 ```js
 module.exports = {
-  extends: ['@eox/eslint-config-vue']
+  extends: ['@eox/code-style-vue']
 }
 ```
 Finally, to run ESLint with auto-fixing, use
