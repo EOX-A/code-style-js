@@ -52,7 +52,8 @@ npx prettier --check .
 npx eslint .
 ```
 
-## VS Code Extension
+## Automation in VS Code (extension, settings)
+### Prettier
 Although you can use prettier via command line, in a pre-commit hook or in a CI pipeline, you can also use the VS Code extension to format files (or file sections) via a handy command or even automatically (e.g. on file save) right inside your code editor.
 
 --> [Prettier - Code formatter extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
@@ -62,4 +63,11 @@ Please refer to the description about setting up and using the extension!
 As a bare minimum, create a `.prettierrc.json` file in the app root to let the editor know prettier is used in this project
 ```js
 echo {} > .prettierrc.json
+```
+### ESLint
+As for ESLint, automatically running and fixing your code can be obtained by changing the settings in your workspace or dev container settings, e.g.:
+```
+"editor.codeActionsOnSave": {
+  "source.fixAll.eslint": true
+},
 ```
