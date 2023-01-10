@@ -18,7 +18,7 @@ Please refer to the [Prettier CLI docs](https://prettier.io/docs/en/cli.html) fo
 To include ESLint in the project, create a file called `.eslintrc.js` in the app root:
 ```js
 module.exports = {
-  extends: '@eox'
+  extends: "@eox"
 }
 ```
 Finally, to run ESLint with auto-fixing, use
