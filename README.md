@@ -2,6 +2,8 @@
 ## Installation
 ```js
 npm install --save-dev EOX-A/code-style-vue
+or
+npm install --save-dev https://git@github.com/EOX-A/code-style-vue.git
 ```
 ## Usage
 ### Prettier
