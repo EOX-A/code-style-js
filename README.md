@@ -10,6 +10,8 @@ npm install --save-dev https://git@github.com/EOX-A/code-style-vue.git
 To run prettier and format all your files in the current folder, use
 ```bash
 npx prettier --write .
+or
+npx prettier --write "**/*"
 ```
 
 Please refer to the [Prettier CLI docs](https://prettier.io/docs/en/cli.html) for further details.
