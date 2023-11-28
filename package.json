@@ -1,6 +1,6 @@
 {
   "name": "@eox/eslint-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "EOX Prettier and ESLint config for Vue.js projects",
   "main": "index.js",
   "repository": "https://github.com/EOX-A/code-style-vue",
