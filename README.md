@@ -1,4 +1,4 @@
-# EOX ESLint & Prettier config vor Vue
+# EOX ESLint & Prettier config vor JS
 ## Installation
 ```js
 npm install --save-dev @eox/eslint-config
