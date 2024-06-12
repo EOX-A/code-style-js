@@ -1,16 +1,15 @@
 {
   "name": "@eox/eslint-config",
-  "version": "1.0.1",
+  "version": "3.0.0",
   "description": "EOX Prettier and ESLint config for Vue.js projects",
   "main": "index.js",
   "repository": "https://github.com/EOX-A/code-style-vue",
   "author": "EOX",
   "license": "MIT",
   "dependencies": {
-    "eslint": "^8.29.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-vue": "^9.8.0",
-    "@vue/eslint-config-typescript": "^11.0.0",
-    "prettier": "2.8.1"
+    "eslint": "^9.4.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-vue": "^9.26.0",
+    "prettier": "^3.3.2"
   }
 }
