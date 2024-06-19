@@ -10,6 +10,9 @@ This reusable config aims to be our default way of setting up linting and format
 - recommended eslint config
 - recommended typescript-eslint
 - typescript-eslint parser
+- vue-eslint parser
+- cypress rules
+- chai friendly errors
 
 The config also includes a minimal set of rules, defined in [index.js](./index.js).
 
