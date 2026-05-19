@@ -11,6 +11,8 @@ This reusable config aims to be our default way of setting up linting and format
 - recommended typescript-eslint
 - typescript-eslint parser
 - vue-eslint parser
+- eslint-plugin-vue (included natively as warnings)
+- eslint-plugin-jsdoc (included natively as warnings)
 - cypress rules
 - chai friendly errors
 
@@ -24,26 +26,39 @@ npm install --save-dev @eox/eslint-config
 
 ## Usage
 
-### Prettier
+### The "One-Stop-Shop" Default
 
-To run prettier and format all your files in the current folder, use
-
-```bash
-npx prettier --write .
-or
-npx prettier --write "**/*"
-```
-
-Please refer to the [Prettier CLI docs](https://prettier.io/docs/en/cli.html) for further details.
-
-### ESLint
-
-To include ESLint in the project, create a file called `eslint.config.mjs` in the app root:
+To include the complete standard EOX configuration (which includes Base JS, TypeScript, Vue 3, JSDoc, Cypress, and Prettier integrations), create a file called `eslint.config.mjs` in the app root:
 
 ```js
 import eox from "@eox/eslint-config";
 
 export default [...eox];
+```
+
+### Modular Imports
+
+If you want more control or want to minimize the configuration for a specific project (e.g., a pure backend Node.js service that doesn't use Vue or Cypress), you can import the individual components of the configuration.
+
+Available named exports:
+
+- `js`
+- `typescript`
+- `vue3`
+- `cypress`
+- `jsdocRules`
+- `prettier` (always apply this last)
+
+```js
+// eslint.config.mjs
+import { js, typescript, jsdocRules, prettier } from "@eox/eslint-config";
+
+export default [
+  ...js,
+  ...typescript,
+  ...jsdocRules,
+  ...prettier, // make sure this is at the end to disable conflicting formatting rules
+];
 ```
 
 Finally, to run ESLint with auto-fixing, use
@@ -56,15 +71,12 @@ Please refer to the [ESLint configuration docs](https://eslint.org/docs/latest/u
 
 ### TypeScript
 
-To use typescript checks, create a `tsconfig.json` in the project root
+To use typescript checks, create a `tsconfig.json` in the project root and extend the centralized configuration:
 
 ```json
 {
-  "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
-    ...
-  }
+  "extends": "@eox/eslint-config/tsconfig.base.json",
+  "include": ["src/**/*", "tests/**/*"]
 }
 ```
 
@@ -105,23 +117,22 @@ Both Prettier and ESLint allow for some rule customization. Please check the [Pr
 
 BUT: please consider if this is really necessary, or if it could be included in the centralized config rather than in an individual project. Ideally, the individual projects should not use any custom rules.
 
-## Extend with plugins
+## Extending the Config
 
-Example: Cypress & Vue
+Since `@eox/eslint-config` v2.1, Vue, Cypress, and JSDoc rules are natively included out-of-the-box. You no longer need to manually append `eslint-plugin-vue`.
+
+If you need to override any rules or add specific plugins, you can do so by appending an object to the exported array:
 
 ```js
-// eslint.config.js
+// eslint.config.mjs
 import eox from "@eox/eslint-config";
-import pluginCypress from "eslint-plugin-cypress/flat";
-import pluginVue from "eslint-plugin-vue";
 
 export default [
   ...eox,
-  pluginCypress.configs.recommended,
-  ...pluginVue.configs["flat/recommended"],
   {
     rules: {
       // override/add rules settings here
+      "vue/no-v-html": "off",
     },
   },
 ];
