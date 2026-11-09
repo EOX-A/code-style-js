@@ -119,6 +119,19 @@ export const jsdocRules = [
     pluginJsdoc.configs["flat/recommended-typescript-flavor"],
   ]),
   {
+    settings: {
+      jsdoc: {
+        preferredTypes: {
+          Object: "object",
+        },
+        structuredTags: {
+          fires: {
+            name: "text",
+            type: true,
+          },
+        },
+      },
+    },
     // keep only the correctness-oriented jsdoc checks
     rules: {
       "jsdoc/require-jsdoc": "off",
