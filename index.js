@@ -121,6 +121,9 @@ export const jsdocRules = [
   {
     settings: {
       jsdoc: {
+        preferredTypes: {
+          Object: "object",
+        },
         structuredTags: {
           fires: {
             name: "text",
